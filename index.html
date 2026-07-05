@@ -3,315 +3,219 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Leviman85</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
-  :root{
-    --bg: #0A0A0C;
-    --ink: #F2F2F0;
-    --muted: #8A8A90;
-    --accent: #5B6BFF;
-    --line: #232326;
-  }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
 
-  *{ box-sizing: border-box; margin:0; padding:0; }
+html{
+scroll-behavior:smooth;
+}
 
-  html{ scroll-behavior: smooth; background: var(--bg); height: 100%; }
+body{
+background:#08090d;
+color:#fff;
+overflow-x:hidden;
+}
 
-  body{
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Inter', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 32px 20px;
-    -webkit-font-smoothing: antialiased;
-    position: relative;
-    overflow-x: hidden;
-  }
+/* Fundo */
 
-  .glow{
-    position: fixed;
-    border-radius: 50%;
-    filter: blur(90px);
-    pointer-events: none;
-    z-index: 0;
-  }
+.blur{
+position:fixed;
+border-radius:50%;
+filter:blur(140px);
+z-index:-2;
+}
 
-  .glow-1{
-    width: 380px;
-    height: 380px;
-    top: -120px;
-    left: -100px;
-    background: var(--accent);
-    opacity: 0.22;
-    animation: float1 14s ease-in-out infinite;
-  }
+.blur1{
+width:420px;
+height:420px;
+background:#2563eb;
+top:-180px;
+left:-180px;
+opacity:.35;
+animation:float1 8s ease-in-out infinite;
+}
 
-  .glow-2{
-    width: 320px;
-    height: 320px;
-    bottom: -140px;
-    right: -100px;
-    background: #8A5CFF;
-    opacity: 0.16;
-    animation: float2 18s ease-in-out infinite;
-  }
+.blur2{
+width:400px;
+height:400px;
+background:#7c3aed;
+right:-180px;
+bottom:-180px;
+opacity:.30;
+animation:float2 10s ease-in-out infinite;
+}
 
-  @keyframes float1{
-    0%, 100%{ transform: translate(0, 0) scale(1); }
-    50%{ transform: translate(40px, 30px) scale(1.1); }
-  }
+@keyframes float1{
+50%{
+transform:translateY(50px);
+}
+}
 
-  @keyframes float2{
-    0%, 100%{ transform: translate(0, 0) scale(1); }
-    50%{ transform: translate(-30px, -20px) scale(1.08); }
-  }
+@keyframes float2{
+50%{
+transform:translateY(-40px);
+}
+}
 
-  .page{
-    width: 100%;
-    max-width: 460px;
-    position: relative;
-    z-index: 1;
-  }
+/* Menu */
 
-  .eyebrow{
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 18px;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards;
-  }
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:rgba(0,0,0,.45);
+backdrop-filter:blur(12px);
+z-index:999;
+}
 
-  .eyebrow .dot{
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--accent);
-    animation: pulse 2.4s ease-in-out infinite;
-  }
+.logo{
 
-  h1{
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: clamp(42px, 11vw, 64px);
-    line-height: 1;
-    letter-spacing: -0.02em;
-    margin-bottom: 14px;
-    opacity: 0;
-    animation: fadeUp 0.6s ease 0.08s forwards;
-  }
+font-size:30px;
 
-  h1 span{
-    color: var(--accent);
-  }
+<section id="sobre">
 
-  .tagline{
-    font-size: 15px;
-    color: var(--muted);
-    line-height: 1.5;
-    max-width: 360px;
-    margin-bottom: 44px;
-    opacity: 0;
-    animation: fadeUp 0.6s ease 0.16s forwards;
-  }
+<h2 class="title">Sobre Mim</h2>
 
-  .links{
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid var(--line);
-  }
+<div class="cards">
 
-  .link-row{
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 20px 4px;
-    border-bottom: 1px solid var(--line);
-    text-decoration: none;
-    color: var(--ink);
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards;
-    overflow: hidden;
-    transition: padding-left 0.3s cubic-bezier(.4,0,.2,1), background 0.3s ease;
-  }
+<div class="card">
 
-  .link-row:nth-of-type(1){ animation-delay: 0.20s; }
-  .link-row:nth-of-type(2){ animation-delay: 0.25s; }
-  .link-row:nth-of-type(3){ animation-delay: 0.30s; }
-  .link-row:nth-of-type(4){ animation-delay: 0.35s; }
-  .link-row:nth-of-type(5){ animation-delay: 0.40s; }
-  .link-row:nth-of-type(6){ animation-delay: 0.45s; }
-  .link-row:nth-of-type(7){ animation-delay: 0.50s; }
-  .link-row:nth-of-type(8){ animation-delay: 0.55s; }
+<h3>👋 Quem sou eu?</h3>
 
-  .link-row::before{
-    content: "";
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 3px;
-    background: var(--accent);
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform 0.35s cubic-bezier(.4,0,.2,1);
-  }
+<p>
+Meu nome é <strong>Leviman85</strong>. Sou apaixonado por Minecraft, tecnologia, desenvolvimento e comunidades no Discord. Gosto de criar projetos, aprender coisas novas e ajudar jogadores.
+</p>
 
-  .link-row:hover::before,
-  .link-row:focus-visible::before{
-    transform: scaleY(1);
-  }
+</div>
 
-  .link-row:hover,
-  .link-row:focus-visible{
-    padding-left: 16px;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
+<div class="card">
 
-  .icon{
-    flex-shrink: 0;
-    width: 22px;
-    height: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--ink);
-  }
+<h3>
 
-  .icon svg{ width: 100%; height: 100%; }
+<section id="redes">
 
-  .icon img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
+<h2 class="title">Minhas Redes</h2>
 
-  .icon img.icon-square{
-    border-radius: 6px;
-  }
+<div class="cards">
 
-  .link-text{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
+<a class="card" href="https://discord.gg/jbFRsFTMnt" target="_blank" style="text-decoration:none;color:white;">
 
-  .link-label{
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 500;
-    font-size: 17px;
-  }
+<h3>💬 Discord</h3>
 
-  .link-sub{
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--muted);
-  }
+<p>Entre na minha comunidade do Discord.</p>
 
-  .arrow{
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 18px;
-    color: var(--muted);
-    transition: transform 0.3s ease, color 0.3s ease;
-  }
+</a>
 
-  .link-row:hover .arrow,
-  .link-row:focus-visible .arrow{
-    transform: translateX(4px);
-    color: var(--accent);
-  }
+<a class="card" href="https://discord.gg/YHuKs7v3TN" target="_blank" style="text-decoration:none;color:white;">
 
-  footer{
-    margin-top: 40px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.04em;
-    opacity: 0;
-    animation: fadeUp 0.6s ease 0.62s forwards;
-  }
+<h3>👼 Angel Client</h3>
 
-  @keyframes fadeUp{
-    from{ opacity: 0; transform: translateY(10px); }
-    to{ opacity: 1; transform: translateY(0); }
-  }
+<p>Conheça o Angel Client e a comunidade.</p>
 
-  @keyframes pulse{
-    0%, 100%{ opacity: 1; }
-    50%{ opacity: 0.35; }
-  }
+</a>
 
-  @media (prefers-reduced-motion: reduce){
-    *{ animation: none !important; transition: none !important; opacity: 1 !important; }
-  }
+<a class="card" href="https://livepix.gg/olevi85" target="_blank" style="text-decoration:none;color:white;">
 
-  a:focus-visible{
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-</style>
-</head>
-<body>
+<h3>💙 LivePix</h3>
 
-  <div class="glow glow-1"></div>
-  <div class="glow glow-2"></div>
+<p>Se quiser, você pode apoiar meu trabalho.</p>
 
-  <div class="page">
-    <div class="eyebrow"><span class="dot"></span> online agora</div>
+</a>
 
-    <h1>Levi<span>man85</span></h1>
+</div>
 
-    <p class="tagline">
-      Bem-vindo(a) ao meu cantinho. Aqui embaixo estão os melhores lugares pra me encontrar e me apoiar.
-    </p>
+</section>
 
-    <nav class="links">
-      <a class="link-row" href="https://livepix.gg/olevi85" target="_blank" rel="noopener noreferrer">
-        <span class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
-        </span>
-        <span class="link-text">
-          <span class="link-label">LivePix</span>
-          <span class="link-sub">apoiar / doar</span>
-        </span>
-        <span class="arrow">→</span>
-      </a>
+<section id="contato">
 
-      <a class="link-row" href="https://discord.gg/jbFRsFTMnt" target="_blank" rel="noopener noreferrer">
-        <span class="icon">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.1 13.1 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .078-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .079.009c.12.099.246.198.373.292a.077.077 0 0 1-.006.128 12.3 12.3 0 0 1-1.873.891.076.076 0 0 0-.04.107c.36.698.772 1.363 1.225 1.993a.076.076 0 0 0 .084.029 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.055c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028ZM8.02 15.33c-1.183 0-2.157-1.086-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.333-.955 2.419-2.157 2.419Zm7.975 0c-1.183 0-2.157-1.086-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.419 0 1.333-.946 2.419-2.157 2.419Z"/></svg>
-        </span>
-        <span class="link-text">
-          <span class="link-label">Discord</span>
-          <span class="link-sub">entrar no servidor</span>
-        </span>
-        <span class="arrow">→</span>
-      </a>
+<h2 class="title">Contato</h2>
 
-      <a class="link-row" href="https://discord.gg/v9KMt5m4zR" target="_blank" rel="noopener noreferrer">
-        <span class="icon">
-          <img class="icon-square" src="data:image/png;base64,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" alt="Angel Client">
-        </span>
-        <span class="link-text">
-          <span class="link-label">Discord — Angel Client</span>
-          <span class="link-sub">helper do angel client</span>
-        </span>
-        <span class="arrow">→</span>
-      </a>
+<div class="cards">
 
-      <a class="link-row" href="https://discord.gg/YHuKs7v3TN" target="_blank" rel="noopener noreferrer">
-        <span class="icon">
-          <img class="icon-square" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAi+ElEQVR4nO2deZQdV33nP797q97S+ya1ZMmSrMWWhBdsGBtwYsc2NjB2kkmITQYHCBAyhMCQnEzIxhKGLGRPOIc5ibPOYIbEZglgHCdmicGAl9gG78irbGvfWuru12+pe3/zx616r97rbtlDrNdt533PKb1XVbeqnupb39/9LfdWQw899NBDDz300EMPPfTQQw899NBDDz300EMPPfTQQw899NBDDz300MOLDIKqcOWVFogAC8gS/6YenjdIjktjwEaIjRBr4crrLBdemJFuWKbEL8sf9TxCOpYMClfClena9QDX5/cbwAHrC2MT11KdfaxembsLuAf4HrC31dKAmPAsqKKf+pTl4x8XbgG4RVvXay5dxYuNYCFTk6rDWhUJ3CqAarr4RY6WsBgLqpRXnfTJVf/3y2+sO4GnHsE9/RjJzkePuace25nsfPzBxs5H769W6w8BjwBPA0faztdJvip84AOGD38YYJEf8fzixUBwRqpijBcx4UZ6BzAGrAfWAhuA1QKTFkYlEouNBK+q3lXU6ZyHWaCmQaErJt/1y+8zv/H7bnoPGvWDjTDWYqwDOz0FB3bBnp24nY/i9u866Pfv2d3Y/dQTjV1PP+6eefKJWuKfAnYB+wjkzyzFzXmhIihVjMMYcAnAKuA84KLCQP958bqNm6O1GyeidZuxJ63HTJwEQ6NIqR8KZbAWSB8GV0eqs1CZhqOH0IN7iK94I1PlNVCrA6n4QbFWKRS9KYApINZirQWrYGoNZPowcmQ/fv8u/K4ncU89MZfs3DHV2L/3QO3ppw7V9+7+GCL/iKoldAUnDNGJPPkJQlCsMQ4RcG4U5/9zBD9ZPP3sHyide8FIfM6FyOYz0bG1+FIRZ3ANRX2SWmeHNK20gERo5iqJBROBsUjliLPUE7BR88IiaX+e1AwNxc8oDkUVxRglilRKkyonT2I2niHWYqylXEgorxhg9b4rL6W+d/cXxRjUuRMusBeSggWwiEkQAe82Au/s27Dx6r7XvP6kwsU/ht/0MpJSwTUaqK8gWqsZnJO0B0ZEmiwBwQZkiwKSSjR1hSSyab+8wC/Jf3Zuy/p6Qr+rDad2fNCPPnYHT/3IK/f60dFtHDo0nbV+Pm9SJ14oCraIOIxJcG4dyi/0v+Ssnxm8+ucH5Yd+gsbwqJuZAX+0ZuTIrBURxAgiBiK72BkDs
+<div class="card">
+
+<h3>📧 Fale comigo</h3>
+
+<p>
+Quer conversar sobre Minecraft, projetos ou parcerias? Entre em contato pelo Discord.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🚀 Objetivo</h3>
+
+<p>
+Continuar criando projetos cada vez melhores para a comunidade de Minecraft.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>Leviman<span>85</span></h2>
+
+<p>
+© 2026 • Todos os direitos reservados.
+</p>
+
+</footer>
+
+<button id="topo">⬆</button>
+
+<style>
+
+footer{
+
+margin-top:80px;
+padding:40px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.08);
+color:#bdbdbd;
+
+}
+
+footer span{
+
+color:#3b82f6;
+
+}
+
+#topo{
+
+position:fixed;
+right:20px;
+bottom:20px;
+width:55px;
+height:55px;
+border:none;
+border-radius:50%;
+background:#2563eb;
+color:white;
+font-size:22px;
+cursor:pointer;
+box
